@@ -27,6 +27,10 @@
       {
         "name": "buyer",
         "file": "buyer/buyer.js"
+      },
+      {
+        "name": "addcar",
+        "file": "seller/addcar/addcar.js"
       }
     ]
   }
