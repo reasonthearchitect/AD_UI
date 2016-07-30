@@ -18,6 +18,16 @@
         "marker": "/* Add Component LESS Above */",
         "template": "@import \"<%= filename %>\";"
       }
-    }
+    },
+    "modules": [
+      {
+        "name": "login",
+        "file": "common/login/login.js"
+      },
+      {
+        "name": "buyer",
+        "file": "buyer/buyer.js"
+      }
+    ]
   }
 }
