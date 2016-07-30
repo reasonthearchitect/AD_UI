@@ -2,6 +2,9 @@
 
 	<h2>Welcome {{newcar.seller}}</h2>
 
+  	<button type="button" class="btn btn-danger" ng-click="clear()">Clear</button>
+  	<button type="button" class="btn btn-info" ng-click="addcar()">Submit</button>
+
 	<p class="form-group">
     	<label>VIN</label>
     	<input type="text" ng-model="newcar.vin" class="form-control">
@@ -29,12 +32,12 @@
 
     <p class="form-group">
     	<label>Opening Bid</label>
-    	<input type="text" ng-model="newcar.openingBid" class="form-control">
+    	<input type="number" ng-model="newcar.openingBid" class="form-control">
   	</p>
 
     <p class="form-group">
     	<label>Stock Number</label>
-    	<input type="text" ng-model="newcar.stockNumber" class="form-control">
+    	<input type="number" ng-model="newcar.stockNumber" class="form-control">
   	</p>
 
     <p class="form-group">
@@ -46,5 +49,8 @@
     	<label>Additional Comments</label>
     	<input type="text" ng-model="newcar.additionalComments" class="form-control">
   	</p>
+  	
+  	<button type="button" class="btn btn-danger" ng-click="clear()">Clear</button>
+  	<button type="button" class="btn btn-info" ng-click="addcar()">Submit</button>
 
 </div>
