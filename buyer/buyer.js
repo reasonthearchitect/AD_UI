@@ -1,4 +1,4 @@
-angular.module('buyer', ['ui.bootstrap','ui.router', 'AngularStompDK', 'ngAnimate', 'smart-table']);
+angular.module('buyer', ['ui.bootstrap','ui.router', 'AngularStompDK', 'ngToast','ngAnimate', 'smart-table']);
 
 angular.module('buyer').config(function($stateProvider) {
 
@@ -9,6 +9,17 @@ angular.module('buyer').config(function($stateProvider) {
     /* Add New States Above */
 
 });
+
+
+angular
+  	.module('buyer')
+  	.config(['ngToastProvider', function(ngToast) {
+    	ngToast.configure({
+      		verticalPosition: 'top',
+      		horizontalPosition: 'center',
+      		maxNumber: 3
+    	});
+  }]);
 
 
 angular.module('buyer')

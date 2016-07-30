@@ -28,6 +28,8 @@
     "angular-smart-table": "latest"
   },
   "dependencies": {
-    "AngularStompDK": "^0.9.3"
+    "AngularStompDK": "^0.9.3",
+    "angular-sanitize": "^1.5.8",
+    "ng-toast": "^2.0.0"
   }
 }

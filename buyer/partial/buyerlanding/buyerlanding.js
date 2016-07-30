@@ -1,4 +1,4 @@
-angular.module('buyer').controller('BuyerlandingCtrl',function($scope, $http, ngstomp){
+angular.module('buyer').controller('BuyerlandingCtrl',function($scope, $http, ngstomp, ngToast){
 
 	$scope.carlist = [];
 
@@ -20,8 +20,7 @@ angular.module('buyer').controller('BuyerlandingCtrl',function($scope, $http, ng
 
     function addToCarList(message) {
 
-    	console.log("GOT A NEW CAR!!!!!!!!!!!!!!! " );
-
-        $scope.carlist.push(message.body);
+    	ngToast.create("A new car! " + message.body.year + " " + message.body.make + " " + message.body.model);
+        $scope.carlist.unshift(message.body);
     }
 });
