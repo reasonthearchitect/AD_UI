@@ -26,5 +26,8 @@
     "karma-phantomjs-launcher": "~0.1.4",
     "load-grunt-tasks": "~0.2",
     "angular-smart-table": "latest"
+  },
+  "dependencies": {
+    "AngularStompDK": "^0.9.3"
   }
 }

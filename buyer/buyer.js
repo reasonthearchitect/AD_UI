@@ -1,4 +1,4 @@
-angular.module('buyer', ['ui.bootstrap','ui.router','ngAnimate', 'smart-table']);
+angular.module('buyer', ['ui.bootstrap','ui.router', 'AngularStompDK', 'ngAnimate', 'smart-table']);
 
 angular.module('buyer').config(function($stateProvider) {
 
@@ -9,4 +9,12 @@ angular.module('buyer').config(function($stateProvider) {
     /* Add New States Above */
 
 });
+
+
+angular.module('buyer')
+        .config(function(ngstompProvider){
+            ngstompProvider
+                .url('/listenfornewcars/')
+                .class(SockJS);
+        });
 

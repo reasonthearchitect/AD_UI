@@ -1,4 +1,4 @@
-angular.module('buyer').controller('BuyerlandingCtrl',function($scope, $http){
+angular.module('buyer').controller('BuyerlandingCtrl',function($scope, $http, ngstomp){
 
 	$scope.carlist = [];
 
@@ -7,13 +7,21 @@ angular.module('buyer').controller('BuyerlandingCtrl',function($scope, $http){
   		url: '/api/cars'
 	}).then(function successCallback(response) {
 		$scope.carlist = response.data;
-		console.log('Success!!!!' + JSON.stringify($scope.carlist));
-
-    	// this callback will be called asynchronously
-    	// when the response is available
   	}, function errorCallback(response) {
   		console.log('Failure??????');
-    	// called asynchronously if an error occurs
-    	// or server returns response with an error status.
   	});
+
+  	ngstomp
+        .subscribeTo('/topic/newcar')
+            .callback(addToCarList)
+            .withBodyInJson()
+            .bindTo($scope)
+        .connect();
+
+    function addToCarList(message) {
+
+    	console.log("GOT A NEW CAR!!!!!!!!!!!!!!! " );
+
+        $scope.carlist.push(message.body);
+    }
 });

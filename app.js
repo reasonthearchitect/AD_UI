@@ -7,6 +7,7 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
 
 });
 
+
 angular.module('app').run(function($rootScope) {
 
     $rootScope.safeApply = function(fn) {
