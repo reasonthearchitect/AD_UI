@@ -3,7 +3,7 @@ angular.module('buyer', ['ui.bootstrap','ui.router', 'AngularStompDK', 'ngToast'
 angular.module('buyer').config(function($stateProvider) {
 
     $stateProvider.state('buyerlanding', {
-        url: '/buyerlanding',
+        url: '/buyerlanding/:id',
         templateUrl: 'buyer/partial/buyerlanding/buyerlanding.html'
     });
     /* Add New States Above */

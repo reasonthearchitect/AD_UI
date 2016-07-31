@@ -13,14 +13,9 @@ angular.module('addcar').controller('AddcarpartialCtrl',function($scope, $stateP
   			url: '/addcar/',
   			data: $scope.newcar
 		}).then(function successCallback(response) {
-    		console.log("Success");
-    		console.log(JSON.stringify(response));
-  			
-  			$scope.clear();
+    		$scope.clear();
   		}, function errorCallback(response) {
-    		console.log("ERROR????????????");
     		console.log(JSON.stringify(response));
     	});
-		
-	}
+	};
 });

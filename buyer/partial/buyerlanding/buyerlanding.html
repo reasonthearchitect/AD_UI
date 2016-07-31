@@ -7,14 +7,19 @@
 	<table st-table="rowCollection" class="table table-striped">
 	    <thead>
 	      <tr>
-		      <th>Year/Make/Model</th>
+		      <th>Watch</th>
+          <th>Year/Make/Model</th>
 		      <th>Stock #</th>
 		      <th>Odometer</th>
       	</tr>
     	</thead>
     	<tbody>
       	<tr ng-repeat="row in carlist">
-      		<td>{{row.year}} {{row.make}} {{row.model}}</td>
+      		<td>
+              <a ng-click="addToWatchList(row.vin)" class="btn btn-success">
+                <span class="glyphicon glyphicon-eye-open"></span> Watch 
+              </a>
+          <td>{{row.year}} {{row.make}} {{row.model}}</td>
         	<td>{{row.stockNumber}}</td>
       		<td>{{row.odometer}}</td>
        	</tr>
