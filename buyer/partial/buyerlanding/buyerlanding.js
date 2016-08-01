@@ -1,6 +1,8 @@
-angular.module('buyer').controller('BuyerlandingCtrl',function($scope,  $stateParams, $http, ngstomp, ngToast){
+angular.module('buyer').controller('BuyerlandingCtrl',function($scope, $stateParams, $http, ngstomp, ngToast){ 
 
 	$scope.carlist = [];
+
+  $scope.id = $stateParams.id;
 
   function loadList() {
 
@@ -30,7 +32,6 @@ angular.module('buyer').controller('BuyerlandingCtrl',function($scope,  $statePa
   };
 
   $scope.addToWatchList = function(vin) {
-
     $http({
           method: 'POST',
           url: "/watchingcars/for/" + $stateParams.id + "/carvin/" + vin

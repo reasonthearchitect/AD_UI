@@ -1,4 +1,4 @@
-angular.module('buyerwatch', ['ui.bootstrap','ui.router','ngAnimate']);
+angular.module('buyerwatch', ['ui.bootstrap','ui.router', 'AngularStompDK', 'ngToast','ngAnimate', 'smart-table']);
 
 angular.module('buyerwatch').config(function($stateProvider) {
 
@@ -10,3 +10,12 @@ angular.module('buyerwatch').config(function($stateProvider) {
 
 });
 
+angular
+  	.module('buyer')
+  	.config(['ngToastProvider', function(ngToast) {
+    	ngToast.configure({
+      		verticalPosition: 'top',
+      		horizontalPosition: 'center',
+      		maxNumber: 3
+    	});
+  }]);
