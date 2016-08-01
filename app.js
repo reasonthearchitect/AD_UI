@@ -1,4 +1,4 @@
-angular.module('app', ['ui.bootstrap', 'ui.router', 'ngAnimate', 'login', 'buyer', 'addcar']);
+angular.module('app', ['ui.bootstrap', 'ui.router', 'ngAnimate', 'login', 'buyer', 'addcar', 'buyerwatch']);
 
 angular.module('app').config(function($stateProvider, $urlRouterProvider) {
 

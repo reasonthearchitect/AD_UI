@@ -31,6 +31,10 @@
       {
         "name": "addcar",
         "file": "seller/addcar/addcar.js"
+      },
+      {
+        "name": "buyerwatch",
+        "file": "buyerwatch/buyerwatch.js"
       }
     ]
   }
