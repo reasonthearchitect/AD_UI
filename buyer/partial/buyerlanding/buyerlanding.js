@@ -4,26 +4,15 @@ angular.module('buyer').controller('BuyerlandingCtrl',function($scope,  $statePa
 
   function loadList() {
 
-
       $http({
           method: 'GET',
-          url: '/watchingcars/getwatchlist/' + $stateParams.id
+          url: '/filtercarlist/buyernotwatching/' + $stateParams.id
       }).then(function successCallback(response) {
-
-        console.log( "The watchlist: " + JSON.stringify(response.data) );
-        }, function errorCallback(response) {
-          console.log('Failure??????');
-        });
-
-
-    	$http({
-      		method: 'GET',
-      		url: '/api/cars'
-    	}).then(function successCallback(response) {
-    		$scope.carlist = response.data;
-      	}, function errorCallback(response) {
-      		console.log('Failure??????');
-      	});
+        $scope.carlist = response.data;
+        
+      }, function errorCallback(response) {
+        console.log('Failure??????');
+      });
 
     	ngstomp
           .subscribeTo('/topic/newcar')
@@ -31,14 +20,12 @@ angular.module('buyer').controller('BuyerlandingCtrl',function($scope,  $statePa
               .withBodyInJson()
               .bindTo($scope)
           .connect();
-
   }
 
   loadList();
   function addToCarList(message) {
-
   	ngToast.create("A new car! " + message.body.year + " " + message.body.make + " " + message.body.model);
-      $scope.carlist.unshift(message.body);
+    $scope.carlist.unshift(message.body);
   };
 
   $scope.addToWatchList = function(vin) {
@@ -47,6 +34,7 @@ angular.module('buyer').controller('BuyerlandingCtrl',function($scope,  $statePa
           method: 'POST',
           url: "/watchingcars/for/" + $stateParams.id + "/carvin/" + vin
       }).then(function successCallback(response) {
+          loadList();
           console.log("Added to the watch list!!!!!!!!!");
         }, function errorCallback(response) {
           console.log('Failure??????');
