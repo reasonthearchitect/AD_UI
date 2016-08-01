@@ -1,5 +1,20 @@
 <div class="col-md-12" ng-controller="BuyerwatchCtrl">
 
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">I'm a modal!</h3>
+    </div>
+    <div class="modal-body">
+        Bid:
+        <br/>
+        <input type="number" ng-model="bid"/>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+
 <toast></toast>
 
 <a ng-href="#/buyerlanding/{{id}}" class="btn btn-primary">
@@ -11,8 +26,10 @@
 	<table st-table="rowCollection" class="table table-striped">
 	    <thead>
 	      <tr>
-	      	<th>Stop Watch</th>
+	      <th>Stop Watch</th>
 		   	<th>Year/Make/Model</th>
+        <th>Your Bid</th>
+        <th>Current Bid</th>
 		    <th>Stock #</th>
 		    <th>Odometer</th>
       	</tr>
@@ -24,7 +41,9 @@
                 <span class="glyphicon glyphicon-eye-close"></span> Stop 
               </a>
             </td>
-          	<td>{{row.year}} {{row.make}} {{row.model}}</td>
+          	<td><a ng-click="open(row.vin)">{{row.year}} {{row.make}} {{row.model}}</a></td>
+            <td>{{highestBidMap[row.vin].id == id}}</td>
+            <td>{{highestBidMap[row.vin].amount}}</td>
         	<td>{{row.stockNumber}}</td>
       		<td>{{row.odometer}}</td>
        	</tr>
