@@ -1,5 +1,5 @@
 angular.module('buyer').controller('BuyerlandingCtrl',function($scope, $stateParams, $http, ngstomp, ngToast){ 
-
+ 
 	$scope.carlist = [];
 
   $scope.id = $stateParams.id;
@@ -42,5 +42,4 @@ angular.module('buyer').controller('BuyerlandingCtrl',function($scope, $statePar
           console.log('Failure??????');
         });
   };
-
 });

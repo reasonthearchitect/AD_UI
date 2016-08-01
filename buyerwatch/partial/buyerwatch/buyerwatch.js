@@ -1,5 +1,5 @@
-angular.module('buyerwatch').controller('BuyerwatchCtrl',function($scope, $uibModal, $stateParams, $log, $http, ngToast){
-
+angular.module('buyerwatch').controller('BuyerwatchCtrl',function($scope, $uibModal, $stateParams, $log, $http, ngstomp, ngToast){
+ 
 	$scope.carlist = [];
   $scope.highestBidMap = {};
 
@@ -20,6 +20,19 @@ angular.module('buyerwatch').controller('BuyerwatchCtrl',function($scope, $uibMo
   }; 
 
   loadList();
+
+  ngstomp
+          .subscribeTo('/topic/newbid')
+              .callback(newbid)
+              .withBodyInJson()
+              .bindTo($scope)
+          .connect();
+
+  function newbid(message) {
+    console.log("NEW BID: " + JSON.stringify(message))
+    ngToast.create("A new price! " + message.body.id + " " + message.body.vin + " " + message.body.amount);
+    loadList();
+  };
 
   $scope.removeFromWatchList = function(vin) {
     

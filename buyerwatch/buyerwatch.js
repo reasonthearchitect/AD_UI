@@ -10,8 +10,7 @@ angular.module('buyerwatch').config(function($stateProvider) {
 
 });
 
-angular
-  	.module('buyer')
+angular.module('buyerwatch')
   	.config(['ngToastProvider', function(ngToast) {
     	ngToast.configure({
       		verticalPosition: 'top',
@@ -19,3 +18,10 @@ angular
       		maxNumber: 3
     	});
   }]);
+
+angular.module('buyerwatch')
+        .config(function(ngstompProvider){
+            ngstompProvider
+                .url('/listenfornewbid/')
+                .class(SockJS);
+        });
