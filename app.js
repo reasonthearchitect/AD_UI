@@ -3,7 +3,7 @@ angular.module('app', ['ui.bootstrap', 'ui.router', 'ngAnimate', 'login', 'buyer
 angular.module('app').config(function($stateProvider, $urlRouterProvider) {
 
     /* Add New States Above */
-    $urlRouterProvider.otherwise('/buyerlanding');
+    $urlRouterProvider.otherwise('/login');
 
 });
 

@@ -1,10 +1,15 @@
 <div class="col-md-12" ng-controller="LoginformCtrl">
 
 
-	hello and welcome to the login screen.
-
-	<button type="button" class="btn btn-primary">
-        Single Toggle
-    </button>
+	<h2>Welcome To The AD Demo</h2>
+	<input type="text" ng-model="username"></input>
+	<br/>
+	<br/>
+	<a ng-href="#/buyerlanding/{{username}}" class="btn btn-primary">
+	  Buyer
+	</a>
+	<a ng-href="#/addcar/{{username}}" class="btn btn-primary">
+	  Seller 
+	</a>
 
 </div>
