@@ -1,0 +1,14 @@
+Notes For AWS:
+
+Admin file: /var/lib/jenkins/secrets/initialAdminPassword
+
+bin/zookeeper-server-start.sh config/zookeeper.properties
+bin/kafka-server-start.sh config/server.properties
+
+bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+
+ssh -i ~/.ssh/id_rsa_reason.pem ubuntu@reasonthearchitect.com
+
+172.31.7.17
+
