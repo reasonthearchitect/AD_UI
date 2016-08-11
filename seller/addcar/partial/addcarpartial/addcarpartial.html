@@ -2,55 +2,65 @@
 
 	<h2>Welcome {{newcar.seller}}</h2>
 
-  	<button type="button" class="btn btn-danger" ng-click="clear()">Cancel</button>
-  	<button type="button" class="btn btn-info" ng-click="addcar()">Submit</button>
+    <form name="carForm" ng-submit="addcar()" novalidate>
+      <button type="button" class="btn btn-danger" ng-click="clear()">Cancel</button>
+      <button type="submit" class="btn btn-primary" ng-disabled="carForm.$invalid">Submit</button>
+    	 
+       <div class="form-group" ng-class="{ 'has-error' : carForm.vin.$invalid && !carForm.vin.$pristine }">
+        	<label>VIN</label>
+        	<input type="text" name="vin" ng-model="newcar.vin" class="form-control" ng-minlength="3" ng-required="required">
+          <p ng-show="carForm.vin.$invalid && !carForm.vin.$pristine" class="help-block">Required to have a minimum of 3 characters.</p>
+      	</div>
 
-	<p class="form-group">
-    	<label>VIN</label>
-    	<input type="text" ng-model="newcar.vin" class="form-control">
-  	</p>
+        <div class="form-group" ng-class="{ 'has-error' : carForm.year.$invalid && !carForm.year.$pristine }">
+        	<label>Year</label>
+        	<input type="number" name="year" ng-model="newcar.year" class="form-control" ng-minlength="4" ng-maxlength="4" ng-required="required">
+          <p ng-show="carForm.year.$invalid && !carForm.year.$pristine" class="help-block">Required and may only have 4 numbers.</p>
+      	</div>
 
-    <p class="form-group">
-    	<label>Year</label>
-    	<input type="number" ng-model="newcar.year" class="form-control">
-  	</p>
+        <div class="form-group" ng-class="{ 'has-error' : carForm.make.$invalid && !carForm.make.$pristine }">
+        	<label>Make</label>
+        	<input type="text" name="make" ng-model="newcar.make" class="form-control" ng-minlength="3" ng-required="required">
+          <p ng-show="carForm.make.$invalid && !carForm.make.$pristine" class="help-block">Required to have a minimum of 3 characters.</p>
+      	</div>
 
-    <p class="form-group">
-    	<label>Make</label>
-    	<input type="text" ng-model="newcar.make" class="form-control">
-  	</p>
+        <div class="form-group" ng-class="{ 'has-error' : carForm.model.$invalid && !carForm.model.$pristine }">
+          <label>Model</label>
+          <input type="text" name="model" ng-model="newcar.model" class="form-control" ng-minlength="3" ng-required="required">
+          <p ng-show="carForm.model.$invalid && !carForm.model.$pristine" class="help-block">Required to have a minimum of 3 characters.</p>
+        </div>
 
-    <p class="form-group">
-    	<label>Model</label>
-    	<input type="text" ng-model="newcar.model" class="form-control">
-  	</p>
+        <div class="form-group" ng-class="{ 'has-error' : carForm.odometer.$invalid && !carForm.odometer.$pristine }">
+          <label>Odometer</label>
+          <input type="text" name="odometer" ng-model="newcar.odometer" class="form-control" ng-required="required">
+          <p ng-show="carForm.odometer.$invalid && !carForm.odometer.$pristine" class="help-block">Required.</p>
+        </div>
 
-    <p class="form-group">
-    	<label>Odometer</label>
-    	<input type="number" ng-model="newcar.odometer" class="form-control">
-  	</p>
+        <div class="form-group" ng-class="{ 'has-error' : carForm.openingBid.$invalid && !carForm.openingBid.$pristine }">
+          <label>Opening Bid</label>
+          <input type="text" name="openingBid" ng-model="newcar.openingBid" class="form-control" ng-required="required">
+          <p ng-show="carForm.openingBid.$invalid && !carForm.openingBid.$pristine" class="help-block">Required.</p>
+        </div>
 
-    <p class="form-group">
-    	<label>Opening Bid</label>
-    	<input type="number" ng-model="newcar.openingBid" class="form-control">
-  	</p>
+        <div class="form-group" ng-class="{ 'has-error' : carForm.stockNumber.$invalid && !carForm.stockNumber.$pristine }">
+          <label>Stock Number</label>
+          <input type="text" name="stockNumber" ng-model="newcar.stockNumber" class="form-control" ng-required="required">
+          <p ng-show="carForm.stockNumber.$invalid && !carForm.stockNumber.$pristine" class="help-block">Required.</p>
+        </div>
 
-    <p class="form-group">
-    	<label>Stock Number</label>
-    	<input type="number" ng-model="newcar.stockNumber" class="form-control">
-  	</p>
+        <div class="form-group" ng-class="{ 'has-error' : carForm.comments.$invalid && !carForm.comments.$pristine }">
+          <label>Comments</label>
+          <input type="text" name="comments" ng-model="newcar.comments" class="form-control" ng-required="required">
+          <p ng-show="carForm.comments.$invalid && !carForm.comments.$pristine" class="help-block">Required.</p>
+        </div>
 
-    <p class="form-group">
-    	<label>Comments</label>
-    	<input type="text" ng-model="newcar.comments" class="form-control">
-  	</p>
 
-    <p class="form-group">
-    	<label>Additional Comments</label>
-    	<input type="text" ng-model="newcar.additionalComments" class="form-control">
-  	</p>
-  	
-  	<button type="button" class="btn btn-danger" ng-click="clear()">Cancel</button>
-  	<button type="button" class="btn btn-info" ng-click="addcar()">Submit</button>
-
+        <div class="form-group">
+        	<label>Additional Comments</label>
+        	<input type="text" ng-model="newcar.additionalComments" class="form-control">
+      	</div>
+      	
+      	<button type="button" class="btn btn-danger" ng-click="clear()">Cancel</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="carForm.$invalid">Submit</button>
+  </form>
 </div>
