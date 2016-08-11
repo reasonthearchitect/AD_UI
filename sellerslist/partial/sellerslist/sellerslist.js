@@ -10,7 +10,7 @@ angular.module('sellerslist').controller('SellerslistCtrl',function($scope, $sta
           url: '/filterSellers/for/' + $stateParams.id
       }).then(function successCallback(response) {
         $scope.carlist        = response.data.cars;
-        //$scope.highestBidMap  = response.data.highestBidMap; 
+        $scope.highestBidMap  = response.data.highestBidMap; 
         console.log(JSON.stringify(response.data));
       }, function errorCallback(response) {
         console.log('Failure??????');
