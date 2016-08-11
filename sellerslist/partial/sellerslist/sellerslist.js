@@ -17,4 +17,18 @@ angular.module('sellerslist').controller('SellerslistCtrl',function($scope, $sta
       });
   }; 
   loadList();
+
+  ngstomp
+          .subscribeTo('/topic/newbid')
+              .callback(newbid)
+              .withBodyInJson()
+              .bindTo($scope)
+          .connect();
+
+  function newbid(message) {
+    console.log("NEW BID: " + JSON.stringify(message))
+    ngToast.create("A new price! " + message.body.id + " " + message.body.vin + " " + message.body.amount);
+    loadList();
+  };
+  
 });
