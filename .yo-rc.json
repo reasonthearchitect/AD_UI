@@ -35,6 +35,10 @@
       {
         "name": "buyerwatch",
         "file": "buyerwatch/buyerwatch.js"
+      },
+      {
+        "name": "sellerslist",
+        "file": "sellerslist/sellerslist.js"
       }
     ]
   }

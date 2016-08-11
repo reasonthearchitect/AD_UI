@@ -1,0 +1,29 @@
+<div class="col-md-12" ng-controller="SellerslistCtrl">
+
+
+	<a ng-href="#/addcar/{{id}}" class="btn btn-primary">
+	  <span class="glyphicon glyphicon-transfer"></span> Add Car 
+	</a>
+
+	<br/>
+
+	<table st-table="rowCollection" class="table table-striped">
+	    <thead>
+	    	<tr>
+	      		<th>Stop Watch</th>
+				<th>Year/Make/Model</th>
+        		<th>Your Bid</th>
+        		<th>Current Bid</th>
+		    	<th>Stock #</th>
+		    	<th>Odometer</th>
+      		</tr>
+    	</thead>
+    	<tbody>
+      	<tr ng-repeat="row in carlist">
+          	<td><a ng-click="open(row.vin)">{{row.year}} {{row.make}} {{row.model}}</a></td>
+            <td>{{row.stockNumber}}</td>
+      		<td>{{row.odometer}}</td>
+       	</tr>
+	    </tbody>
+    </table>
+</div>
