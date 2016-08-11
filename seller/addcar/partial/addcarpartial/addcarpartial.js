@@ -1,9 +1,10 @@
-angular.module('addcar').controller('AddcarpartialCtrl',function($scope, $stateParams, $http){
+angular.module('addcar').controller('AddcarpartialCtrl',function($scope, $stateParams, $http, $location){
 
 	$scope.newcar = {"seller": $stateParams.id};
 
 	$scope.clear = function() {
-		$scope.newcar = {"seller": $stateParams.id};
+		$location.path('/sellerslist/' + $stateParams.id);
+		//$scope.newcar = {"seller": $stateParams.id};
 	};
 
 	$scope.addcar = function() {
@@ -13,7 +14,8 @@ angular.module('addcar').controller('AddcarpartialCtrl',function($scope, $stateP
   			url: '/addcar/',
   			data: $scope.newcar
 		}).then(function successCallback(response) {
-    		$scope.clear();
+			$location.path('/sellerslist/' + $stateParams.id)
+    		//$scope.clear();
   		}, function errorCallback(response) {
     		console.log(JSON.stringify(response));
     	});
