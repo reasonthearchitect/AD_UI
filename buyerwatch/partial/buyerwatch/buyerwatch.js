@@ -31,11 +31,16 @@ angular.module('buyerwatch').controller('BuyerwatchCtrl',function($scope, $uibMo
   function newbid(message) {
 
     var newbidvin = message.body.vin;
-    
-    for (var i = 0; i < $scope.carlist.length; i++) { 
-      if (newbidvin == $scope.carlist[i].vin) {
-        ngToast.create("A new price from: " + message.body.id + ". For Car: " + message.body.vin);
-        loadList();
+
+    if (message.body.id == $stateParams.id ) {
+      ngToast.create("Congrats! Your bid is the highest bid!");
+      loadList();
+    } else {
+      for (var i = 0; i < $scope.carlist.length; i++) { 
+        if (newbidvin == $scope.carlist[i].vin) {
+          ngToast.create("A new price from: " + message.body.id + ". For Car: " + message.body.vin);
+          loadList();
+        }
       }
     }
   };
