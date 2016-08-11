@@ -27,8 +27,13 @@ angular.module('sellerslist').controller('SellerslistCtrl',function($scope, $sta
 
   function newbid(message) {
     console.log("NEW BID: " + JSON.stringify(message))
-    ngToast.create("A new price! " + message.body.id + " " + message.body.vin + " " + message.body.amount);
-    loadList();
+    var newbidvin = message.body.vin;
+    for (i = 0; i < $scope.carlist.length; i++) { 
+    	if (newbidvin == $scope.carlist[i].vin) {
+    		ngToast.create("A new price from: " + message.body.id + ". For Car: " + message.body.vin;
+    		loadList();
+    	}
+	}
   };
-  
+
 });
